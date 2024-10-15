@@ -1,26 +1,33 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MainHeader from './components/MainHeader.vue';
+import MainBody from './components/MainBody.vue';
+import MainFooter from './components/MainFooter.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    MainHeader,
+    MainBody,
+    MainFooter,
+  },
+  data() {
+    return {
+      currentComponent: 'MainAboutMe',
+    };
+  },
+  methods: {
+    changeComponent(componentName) {
+      this.currentComponent = componentName;
+    },
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="./assets/css/app.css"></style>
+
+<template>
+  <div class="app">
+    <MainHeader @change-component="changeComponent" />
+    <MainBody :current-component="currentComponent" />
+    <MainFooter />
+  </div>
+</template>
