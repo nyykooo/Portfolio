@@ -11,7 +11,7 @@ export default {
   },
   data() {
     return {
-      currentComponent: 'MainAboutMe',
+      currentComponent: 'PageAboutMe',
     };
   },
   methods: {
